@@ -119,7 +119,6 @@ input:focus, select:focus {
 <option>Drama</option>
 <option>Horror</option>
 <option>Sci-Fi</option>
-
 </select>
 
 <label>Rating:</label>
@@ -143,13 +142,12 @@ input:focus, select:focus {
 
 let rating = 0;
 
-//stars
-
+// stars
 document.querySelectorAll(".star").forEach(star => {
 
     star.addEventListener("click", function(){
 
-        rating = this.dataset.value;
+        rating = Number(this.dataset.value);
 
         document.querySelectorAll(".star").forEach(s=>{
             s.classList.remove("selected");
@@ -163,38 +161,64 @@ document.querySelectorAll(".star").forEach(star => {
 
 });
 
-
 window.onload = function(){
     displayMovies();
 }
 
-//add
+// add
 
 function addMovie(){
 
-    const title = document.getElementById("title").value;
+    const title = document.getElementById("title").value.trim();
     const year = document.getElementById("year").value;
     const genre = document.getElementById("genre").value;
 
-    const movie = {
-        title: title,
-        year: year,
-        genre: genre,
-        rating: rating
-    };
-
     let movies = JSON.parse(localStorage.getItem("movies")) || [];
 
-    movies.push(movie);
+    let existingMovie = movies.find(m => m.title.toLowerCase() === title.toLowerCase());
+
+    if(existingMovie){
+
+        existingMovie.rating = Math.round((Number(existingMovie.rating) + Number(rating)) / 2);
+
+        existingMovie.year = year;
+        existingMovie.genre = genre;
+
+    } else {
+
+        const movie = {
+            title: title,
+            year: year,
+            genre: genre,
+            rating: rating
+        };
+
+        movies.push(movie);
+    }
 
     localStorage.setItem("movies", JSON.stringify(movies));
 
     displayMovies();
+}
 
+// delete
+function deleteMovie(index){
+
+    let confirmDelete = confirm("Are you sure you want to delete this movie?");
+
+    if(confirmDelete){
+
+        let movies = JSON.parse(localStorage.getItem("movies")) || [];
+
+        movies.splice(index, 1);
+
+        localStorage.setItem("movies", JSON.stringify(movies));
+
+        displayMovies();
+    }
 }
 
 // display
-
 function displayMovies(){
 
     const movieList = document.getElementById("movieList");
@@ -202,18 +226,18 @@ function displayMovies(){
 
     let movies = JSON.parse(localStorage.getItem("movies")) || [];
 
-    movies.forEach(movie => {
+    movies.forEach((movie, index) => {
 
         let stars = "★".repeat(movie.rating);
 
         movieList.innerHTML += `
         <div class="movie-item">
         ${movie.title} (${movie.year}) - ${movie.genre}, Rating: ${stars}
+        <button class="button" style="width:100px; margin-left:10px;" 
+        onclick="deleteMovie(${index})">Delete</button>
         </div>
         `;
-
     });
-
 }
 
 </script>
