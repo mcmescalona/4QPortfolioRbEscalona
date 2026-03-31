@@ -96,15 +96,41 @@
 
 - Challenge: 
     * What changes that you have to do on the code that will position .notice box on the top right corner of the .content box? Please write the code on paper as well (both html and css on the part of .notice and .content).
+
     * Try to change the position of .content to relative then to fixed. What do you observed each time?
+
+    Answer: When .content is relative, it stays in its normal place and .notice is positioned relative to .content
+    
+    When .content is fixed, .content stays in one place on the screen even when scrolling and .notice moves together with .content since it is inside.
+
     * What do you observe on about the effect of z-index on .notice and .content boxes?
+
+    Answer: z-index controls which element is on top
+    Higher z-index = appears in front
+    Lower z-index = appears behind
+    Only works on positioned elements (not static)
 
 3. Please answer the following reflection questions (15 minutes)
 
     a. Could you summarize the differences between the CSS position values (static, relative, absolute, fixed)? 
 
+    Answer: static - default, cannot be moved using top/left
+    relative - moves from its original position
+    absolute - positioned relative to nearest positioned parent
+    fixed - stays in the same place on the screen even when scrolling
+
     b. How does absolute positioning depend on its parent element?
+
+    Answer: An element with position: absolute uses the nearest parent with a position (relative, absolute, or fixed) as its reference point. If no parent is positioned, it uses the whole page.
 
     c. How do you differentiate sticky from fixed (you can research on sticky)?
 
+    Answer: fixed - always stays in the same spot on the screen
+    sticky - behaves like relative at first, then “sticks” when you scroll past a certain point
+
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
+
+    Answer: Use fixed for a navigation bar so it’s always visible
+    Use absolute to place a “Buy Tickets” button on top of a banner
+    Use sticky for section titles so they stay visible while scrolling
+    Use z-index to make announcements or pop-ups appear above everything
