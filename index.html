@@ -1,34 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>4th Quarter!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Maxxi Escalona">
+  <title>Rate A Movie!</title>
+
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Maxxi Escalona">
-
   <style>
+    /* BODY & FONT */
     body {
-      background-color: seashell;
       font-family: 'Righteous', sans-serif;
-      font-size: 25px;
-      color: darkolivegreen;
+      font-size: 20px;
+      color: black;
       text-align: center;
+      padding-bottom: 50px;
+      margin: 0;
+      background-color: #eee296;
+    }
+
+    /* HEADER BOX */
+    .header-box {
+      width: 40%;
+      margin: 30px auto 15px;
+      padding: 25px;
+      background-color: #0A75BC;
+      border-radius: 10px;
+      font-size: 34px;
+      font-weight: 600;
+      color: #FFFF;
+    }
+
+    /* FORM (if you have one) */
+    form {
+      width: 40%;
+      margin: auto;
+      background-color: #A87A51;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    /* BUTTONS */
+    .button {
+      display: block;
+      width: 200px;
+      margin: 10px auto;
+      padding: 12px;
+      background-color: #0A75BC;
+      color: #FFFF;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background-color: #2b84bf;
+    }
+
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
+
+
+  <video autoplay muted loop id="bgVideo">
+    <source src="content/mamaminion.mp4" type="video/mp4">
+  </video>
+
   <section class="w3-container">
-    <href>Maxxi's 4th Quarter Outputs :P</href>
+
+
+    <div class="header-box">Maxxi's 4th Quarter Outputs &#x1F34C;</div>
+
+
+    <img src="content/minion2.jpg" height="60" width="60">
+
+
     <nav>
       <ul>
-        <li><a href="public/Q41GRubidiumEscalona.htm">Rate A Movie!</a></li>
-        <li><a href="public/Q42GRubidiumEscalona.htm">Rate A Movie! - Updated w Delete</a></li>
-        <li><a href="public/RubidiumESCALONAseatwork2.html">Seatwork 2</a></li>
+        <li><a href="public/Q41GRubidiumEscalona.htm" class="button">Rate A Movie!</a></li>
+        <li><a href="public/Q42GRubidiumEscalona.htm" class="button">Rate A Movie! - Updated w Delete</a></li>
+        <li><a href="public/RubidiumESCALONAseatwork2.html" class="button">Seatwork 2</a></li>
       </ul>
     </nav>
+
   </section>
+
 </body>
 </html>
